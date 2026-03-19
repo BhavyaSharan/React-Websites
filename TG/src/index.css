@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply bg-black text-white font-outfit antialiased overflow-x-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-amber-500 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-amber-400;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/8 hover:border-amber-500/30;
+  }
+
+  .btn-gold {
+    @apply bg-gradient-to-r from-amber-500 to-amber-600 text-black font-semibold px-6 py-3 rounded-full 
+           transition-all duration-300 hover:from-amber-400 hover:to-amber-500 hover:shadow-[0_0_30px_rgba(245,158,11,0.5)]
+           active:scale-95 inline-flex items-center gap-2;
+  }
+
+  .btn-outline {
+    @apply border border-white/20 text-white font-medium px-6 py-3 rounded-full 
+           transition-all duration-300 hover:border-amber-500/60 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(245,158,11,0.2)]
+           active:scale-95 inline-flex items-center gap-2;
+  }
+
+  .section-label {
+    @apply text-cyan-400 text-xs font-semibold tracking-[0.3em] uppercase;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight;
+  }
+
+  .glow-gold {
+    filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.4));
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-amber-400 to-amber-300 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .bg-radial-gold {
+    background: radial-gradient(ellipse at 50% 50%, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  }
+
+  .bg-radial-gold-right {
+    background: radial-gradient(ellipse at 80% 50%, rgba(245, 158, 11, 0.2) 0%, transparent 60%);
+  }
+
+  .no-select {
+    user-select: none;
+  }
+
+  .star-rating::before {
+    content: '★★★★★';
+    @apply text-amber-400;
+  }
+}
