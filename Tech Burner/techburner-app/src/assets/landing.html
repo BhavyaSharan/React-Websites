@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TechBurner | Kinetic Core</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-tint": "#9cff92",
+                        "error-container": "#b92902",
+                        "primary-fixed-dim": "#00ec3a",
+                        "background": "#0e0e0e",
+                        "surface-dim": "#0e0e0e",
+                        "primary-dim": "#00ec3a",
+                        "surface-container-highest": "#262626",
+                        "outline": "#767575",
+                        "secondary-fixed": "#e1c7ff",
+                        "on-tertiary-container": "#005159",
+                        "inverse-surface": "#fcf9f8",
+                        "error-dim": "#d53d18",
+                        "on-secondary-container": "#e0c6ff",
+                        "on-primary-fixed": "#004409",
+                        "inverse-primary": "#006f16",
+                        "surface-container-low": "#131313",
+                        "tertiary-container": "#0eeafd",
+                        "secondary-container": "#620bb7",
+                        "primary": "#9cff92",
+                        "on-tertiary-fixed-variant": "#005c64",
+                        "on-error": "#450900",
+                        "on-error-container": "#ffd2c8",
+                        "surface-container-high": "#201f1f",
+                        "on-background": "#ffffff",
+                        "tertiary-fixed": "#0eeafd",
+                        "inverse-on-surface": "#565555",
+                        "on-secondary-fixed-variant": "#6c21c1",
+                        "surface": "#0e0e0e",
+                        "primary-container": "#00fc3f",
+                        "on-secondary-fixed": "#4a008f",
+                        "surface-container": "#1a1919",
+                        "on-surface": "#ffffff",
+                        "on-tertiary": "#005b63",
+                        "secondary-dim": "#b984ff",
+                        "on-primary": "#006412",
+                        "on-primary-container": "#005a10",
+                        "on-surface-variant": "#adaaaa",
+                        "on-secondary": "#2f0060",
+                        "tertiary": "#8af2ff",
+                        "tertiary-dim": "#00dbec",
+                        "surface-bright": "#2c2c2c",
+                        "secondary-fixed-dim": "#d6b6ff",
+                        "tertiary-fixed-dim": "#00dbec",
+                        "on-tertiary-fixed": "#003d42",
+                        "error": "#ff7351",
+                        "secondary": "#b984ff",
+                        "on-primary-fixed-variant": "#006513",
+                        "surface-variant": "#262626",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#00fc3f",
+                        "outline-variant": "#484847"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0e0e0e; color: white; overflow-x: hidden; }
+        .font-headline { font-family: 'Space Grotesk', sans-serif; }
+        .glass-panel { background: rgba(38, 38, 38, 0.3); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(72, 72, 71, 0.15); }
+        .neon-glow-primary { box-shadow: 0 0 20px rgba(156, 255, 146, 0.2); }
+        .neon-glow-secondary { box-shadow: 0 0 20px rgba(185, 132, 255, 0.15); }
+        .kinetic-gradient { background: linear-gradient(135deg, #9cff92 0%, #00fc3f 100%); }
+        .text-glow { text-shadow: 0 0 10px rgba(156, 255, 146, 0.5); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background selection:bg-primary selection:text-on-primary">
+<!-- Background Video Layer -->
+<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute inset-0 bg-black/60 z-10"></div>
+<img class="w-full h-full object-cover scale-105 opacity-40" data-alt="Cinematic close-up of neon circuitry and computer hardware" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDIXHYLTED7Z8Z7IOJFEnNDwUO6HGD6pydi-IH599rFUpqeo8XUDs-baBj69aHmm8BUNzl0mhVWXYTykTiwa3iXlnrahEfs_CAF9HrZaFO6RiRG_Tr5AqOFwfPslvDwqkSV1HOoNfEbYyzz3cFVdWukUTrCSlLnsCbKptqkrxtWpZ7ImfW1U8tUkHJpYQmW_e0NF9d0Ws0FFj0313xT93ue8m-c4QXhpTK92s4Oat39cLsPc8u9AhkARW0OfVs9FPOe7uPJG0RVw"/>
+<!-- Radial lighting leak -->
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/10 blur-[120px] rounded-full"></div>
+</div>
+<!-- UI Overlay Shell -->
+<main class="relative z-10 min-h-screen flex flex-col">
+<!-- TopNavBar Section -->
+<header class="w-full">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto floating pill mt-6 rounded-full border border-white/15 bg-surface-variant/30 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] secondary-glow-sm">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-black tracking-tighter text-primary uppercase font-headline">TechBurner</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label" href="#">Innovations</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label" href="#">Eco-Systems</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label" href="#">The Core</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:backdrop-blur-3xl hover:border-white/40 transition-all duration-300 scale-95 active:scale-90 flex items-center justify-center p-2 rounded-full">
+<span class="material-symbols-outlined text-on-surface" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+</header>
+<!-- Main Hero Layout -->
+<section class="flex-grow flex flex-col md:flex-row max-w-7xl mx-auto w-full px-6 py-12 gap-12 items-stretch">
+<!-- Left Panel: Editorial Context (60%) -->
+<div class="w-full md:w-3/5 flex flex-col justify-center space-y-12">
+<div class="space-y-6">
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] uppercase tracking-widest font-bold font-label backdrop-blur-md">Gadget Reviews</span>
+<span class="px-4 py-1.5 rounded-full border border-secondary/20 bg-secondary/5 text-secondary text-[10px] uppercase tracking-widest font-bold font-label backdrop-blur-md">Tech Experiments</span>
+<span class="px-4 py-1.5 rounded-full border border-tertiary/20 bg-tertiary/5 text-tertiary text-[10px] uppercase tracking-widest font-bold font-label backdrop-blur-md">Future Tech</span>
+</div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-headline tracking-tighter leading-[0.9] text-white">
+                        Exploring the <span class="text-primary text-glow italic">Future</span> of Tech
+                    </h1>
+<p class="text-on-surface-variant text-lg md:text-xl font-body max-w-md uppercase tracking-[0.2em]">
+                        Gadgets • Experiments • Innovation
+                    </p>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<button class="kinetic-gradient text-on-primary px-8 py-4 rounded-md font-headline font-bold uppercase tracking-widest neon-glow-primary hover:scale-105 transition-transform flex items-center gap-3 group">
+                        Watch the Latest Tech
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="play_arrow">play_arrow</span>
+</button>
+<button class="px-8 py-4 rounded-md border border-outline-variant/30 hover:bg-white/5 transition-all font-headline font-bold uppercase tracking-widest text-on-surface-variant hover:text-white">
+                        Join The Core
+                    </button>
+</div>
+<div class="pt-8 border-l-2 border-primary/30 pl-6 max-w-sm">
+<p class="text-on-surface-variant font-body italic text-sm leading-relaxed">
+                        "Technology is only boring until you burn it. The kinetic core of innovation lies in the wreckage of yesterday's standards."
+                    </p>
+<span class="block mt-3 text-primary font-bold text-xs uppercase tracking-widest font-label">— TechBurner Community</span>
+</div>
+</div>
+<!-- Right Panel: Functional Modules (40%) -->
+<div class="w-full md:w-2/5 flex flex-col gap-6 justify-center">
+<!-- Social Connectivity Glass Pill -->
+<div class="glass-panel rounded-full px-6 py-4 flex justify-between items-center neon-glow-secondary">
+<span class="font-headline font-bold text-sm tracking-widest text-secondary">CONNECT</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer transition-colors" data-icon="group" data-weight="fill">group</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer transition-colors" data-icon="video_library">video_library</span>
+</div>
+</div>
+<!-- Bento Stack -->
+<div class="grid grid-cols-1 gap-6">
+<!-- Army CTA Card -->
+<div class="glass-panel p-6 rounded-xl hover:bg-surface-variant/40 transition-all group cursor-pointer">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline font-bold text-2xl leading-none">Join the <br/><span class="text-secondary">TechBurner Army</span></h3>
+<div class="w-12 h-12 rounded-full kinetic-gradient flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm font-body mb-4">20M+ Strong. Experience tech at the speed of light.</p>
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full border-2 border-background object-cover" data-alt="User avatar 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQqElBE5N5ds_kmZj8-iCVxnBlyCBufcenDQgzOs6V1jyugen2GczzHpG9LtEKN8eXPqOsfcFPhm1P3WbHCkHSWGThO2SpeKFU1a3yG0SDqDG65cy_kzQUhtkTKe66xp8-BQmmcXoqpunLj7sby-J1xL3wQLz6PQ8IJEUDpzO8kG5Q7VjyIqRC3QATcbw2CqUyQCNuiCtPShtz221I4VuBZShMQ7aJIAz7dWRl5Lj3PucujDPp8XvKZe0x6C4Y42FWkA6hbjsU9w"/>
+<img class="w-8 h-8 rounded-full border-2 border-background object-cover" data-alt="User avatar 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHQ_fYIcqbqjSSejI8AztEn67Vz5nRt1P_ORe8LnKRpjzettEzqfQzuJBQ8lXRz-NcI1RxrPBOabHklU32-t1cYSW6KoUnQAiP6y7lBi0fy4R77ZIyVcDqjatjvNrG3ScO1e4CLhJvd2SbLYILHJ7Rf7925OQK-JxjKf-jYIotUt0_fo0-Eay2gS9lQLY9KDKc68ethaT24IZicmCKDpu0N53OJdvniMVcBhI6E5stF8pR4Xf--cLLbBWd7AYTmn4RnpQ6U6dcwQ"/>
+<img class="w-8 h-8 rounded-full border-2 border-background object-cover" data-alt="User avatar 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsPRAk7ZDvjl-AUj5RjWSn5Y7COhy6B-SrEEox50RVDqtG_xmUz6oOzQyca4YhjqZgvRiQKvUdF3Qp0Ahog5YaCIUFjfFPDVhFTXDO7BfK722Rs5YqmtCWM7aKQdMatxfMFTjXBv1cV8qQ4GawF9hiyeHnjsAnEFAUiItCHFcrZ5-0wstIgdvdVF7zL_IAUkKQIgPGKfoMKm8fEV3Xbh3JhsTOfoV7ozR6k2zrMfrIBWXZX0bYJg26SwZ3cBit2o42_0auS7p-1w"/>
+<div class="w-8 h-8 rounded-full border-2 border-background bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+12k</div>
+</div>
+</div>
+<!-- Horizontal Micro Cards -->
+<div class="flex flex-col gap-4">
+<div class="flex gap-4 p-4 glass-panel rounded-xl hover:border-primary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="smartphone">smartphone</span>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-wider group-hover:text-primary transition-colors">Latest Gadget Reviews</h4>
+<p class="text-xs text-on-surface-variant">The future is foldable. Depth dive.</p>
+</div>
+</div>
+<div class="flex gap-4 p-4 glass-panel rounded-xl hover:border-secondary/40 transition-all cursor-pointer group">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="memory">memory</span>
+</div>
+<div>
+<h4 class="font-bold text-sm uppercase tracking-wider group-hover:text-secondary transition-colors">Tech Experiments</h4>
+<p class="text-xs text-on-surface-variant">Liquid nitrogen vs. CPU. Don't try this.</p>
+</div>
+</div>
+<!-- Content Preview Card -->
+<div class="relative rounded-xl overflow-hidden aspect-video glass-panel group cursor-pointer mt-2 border-none">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-60" data-alt="Modern robotics laboratory with glowing lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA01hS8nEy-GHrlmSAU973_v11mm4de_tAZbBuqJju0HbEpumY6_Tlr5piT_vyAFY5mKmfREX2_bDINapCbyoLhLre-7iXRDY9U7gwFJcyiQ04jgSaQRsxPT3BK5c_6Sk8tT3mqjLPrNbgsU_27Lpps9lKAxRIkZKJ2txhbTa18dwLeDbmti7E8LD32ZRtcxuVWE2dQiAvbNo1dmPbJmyojJWr9P7I0hfW3sGKQBxtVqwd467cA9_D6xVHDAy584TEthyd8p7a9vw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-surface">Creator Lab Live</span>
+</div>
+<h4 class="font-headline font-bold text-lg">Inside the TechBurner HQ</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Floating Side Nav (Fixed Left) -->
+<aside class="hidden lg:flex fixed left-6 top-1/2 -translate-y-1/2 w-20 rounded-full border border-white/10 bg-surface-variant/20 backdrop-blur-2xl flex-col items-center py-8 gap-6 z-20 shadow-[0_0_15px_rgba(0,255,64,0.1)]">
+<div class="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-4 border border-primary/30">
+<span class="material-symbols-outlined text-primary" data-icon="share">share</span>
+</div>
+<button class="text-on-surface-variant p-3 hover:text-secondary hover:bg-white/10 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</button>
+<button class="bg-primary-container text-on-primary-container rounded-full p-3 shadow-lg shadow-primary/40">
+<span class="material-symbols-outlined" data-icon="code" data-weight="fill">code</span>
+</button>
+<button class="text-on-surface-variant p-3 hover:text-secondary hover:bg-white/10 rounded-full transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</aside>
+<!-- Footer -->
+<footer class="w-full mt-auto">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-8 w-full border-t border-white/5 bg-transparent font-body text-[10px] uppercase tracking-widest">
+<p class="text-on-surface-variant">© 2024 TECHBURNER KINETIC CORE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8 mt-4 md:mt-0">
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Terms</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="#">Protocol</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

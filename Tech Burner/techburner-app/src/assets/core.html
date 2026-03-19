@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed": "#004409",
+              "on-primary-container": "#005a10",
+              "surface-container": "#1a1919",
+              "inverse-primary": "#006f16",
+              "on-tertiary": "#005b63",
+              "on-tertiary-fixed": "#003d42",
+              "primary-fixed": "#00fc3f",
+              "surface-variant": "#262626",
+              "on-tertiary-fixed-variant": "#005c64",
+              "secondary-container": "#620bb7",
+              "error-container": "#b92902",
+              "tertiary-fixed-dim": "#00dbec",
+              "surface-bright": "#2c2c2c",
+              "secondary": "#b984ff",
+              "on-surface-variant": "#adaaaa",
+              "surface-container-low": "#131313",
+              "surface-container-high": "#201f1f",
+              "surface-container-lowest": "#000000",
+              "on-surface": "#ffffff",
+              "surface": "#0e0e0e",
+              "on-primary": "#006412",
+              "surface-tint": "#9cff92",
+              "tertiary-container": "#0eeafd",
+              "on-error": "#450900",
+              "on-secondary-container": "#e0c6ff",
+              "on-primary-fixed-variant": "#006513",
+              "error-dim": "#d53d18",
+              "on-secondary-fixed": "#4a008f",
+              "secondary-dim": "#b984ff",
+              "inverse-surface": "#fcf9f8",
+              "primary-fixed-dim": "#00ec3a",
+              "secondary-fixed": "#e1c7ff",
+              "primary-container": "#00fc3f",
+              "secondary-fixed-dim": "#d6b6ff",
+              "on-tertiary-container": "#005159",
+              "tertiary": "#8af2ff",
+              "on-background": "#ffffff",
+              "tertiary-dim": "#00dbec",
+              "surface-dim": "#0e0e0e",
+              "primary": "#9cff92",
+              "inverse-on-surface": "#565555",
+              "on-error-container": "#ffd2c8",
+              "background": "#0e0e0e",
+              "outline-variant": "#484847",
+              "error": "#ff7351",
+              "on-secondary-fixed-variant": "#6c21c1",
+              "surface-container-highest": "#262626",
+              "outline": "#767575",
+              "on-secondary": "#2f0060",
+              "primary-dim": "#00ec3a",
+              "tertiary-fixed": "#0eeafd"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Space Grotesk"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-panel {
+        backdrop-filter: blur(20px);
+        background: rgba(38, 38, 38, 0.3);
+      }
+      .secondary-glow-sm {
+        box-shadow: 0 0 15px rgba(0, 255, 64, 0.1);
+      }
+      .neon-border-focus:focus-within {
+        border-bottom: 2px solid #9cff92;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 left-0 right-0 z-50">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto floating pill mt-6 rounded-full border border-white/15 bg-surface-variant/30 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] secondary-glow-sm">
+<div class="text-2xl font-black tracking-tighter text-primary uppercase font-headline">TechBurner</div>
+<div class="hidden md:flex items-center gap-8 font-label">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Innovations</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Eco-Systems</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1" href="#">The Core</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface p-2 hover:bg-white/10 rounded-full transition-all">menu</button>
+</div>
+</div>
+</nav>
+<!-- Side Navigation Shell -->
+<aside class="fixed left-6 top-1/2 -translate-y-1/2 z-50 hidden lg:flex">
+<div class="flex flex-col items-center py-8 gap-6 floating glass pill w-20 rounded-full border border-white/10 bg-surface-variant/20 backdrop-blur-2xl shadow-[0_0_15px_rgba(0,255,64,0.1)]">
+<div class="flex flex-col items-center gap-1 mb-4">
+<div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-xl">bolt</span>
+</div>
+</div>
+<div class="flex flex-col gap-8">
+<button class="text-on-surface-variant p-3 hover:text-secondary hover:bg-white/10 rounded-full transition-all" title="Twitter"><span class="material-symbols-outlined">share</span></button>
+<button class="bg-primary-container text-on-primary-container rounded-full p-3 shadow-lg shadow-primary/20" title="Discord"><span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span></button>
+<button class="text-on-surface-variant p-3 hover:text-secondary hover:bg-white/10 rounded-full transition-all" title="GitHub"><span class="material-symbols-outlined">code</span></button>
+<button class="text-on-surface-variant p-3 hover:text-secondary hover:bg-white/10 rounded-full transition-all" title="LinkedIn"><span class="material-symbols-outlined">person</span></button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="relative pt-32">
+<!-- Hero Section: The Kinetic Heart -->
+<section class="relative min-h-[921px] flex items-center px-6 md:px-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-1/4 -right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -left-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px]"></div>
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+</div>
+<div class="relative z-10 max-w-5xl">
+<div class="flex flex-col gap-4">
+<span class="font-label text-primary uppercase tracking-[0.3em] text-sm font-bold">System Status: Active</span>
+<h1 class="font-headline text-6xl md:text-[8rem] font-black leading-[0.85] tracking-tighter text-white">
+                        THE <span class="text-primary italic">KINETIC</span> <br/> HEART
+                    </h1>
+<p class="font-body text-on-surface-variant text-lg md:text-xl max-w-xl mt-8 leading-relaxed">
+                        Where raw silicon meets pure ambition. Dive into the pulsating core of TechBurner's high-performance laboratory. 
+                    </p>
+<div class="flex flex-wrap gap-6 mt-12">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-md font-label font-bold uppercase tracking-wider hover:scale-105 active:scale-95 transition-transform">Initiate Sequence</button>
+<button class="border border-outline-variant/40 bg-white/5 backdrop-blur-md text-secondary px-8 py-4 rounded-md font-label font-bold uppercase tracking-wider hover:border-white/40 transition-all">View Schematics</button>
+</div>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 w-full h-1/2 md:w-1/2 md:h-full z-0 opacity-40 pointer-events-none">
+<img class="w-full h-full object-cover mix-blend-screen grayscale contrast-150" data-alt="Intricate glowing CPU circuit board macro" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnd3ORqp-LNWYQq2o6jlhb5AL9hiFVvDTyLkVtqi21h-oRezQG4KcYgrV3x86XakKudQac__UNnaQN2dK7YPAx_ZWLaJp8dm8JeV7qiLSuShoXYsOD_SK5DJW-R7Fq1JeZG7pexQ4VF3AZv7pwFZ2lS_5QKnojfRzZHzh2zl_53Ob6GGPg7KBNqYx-7_gGGGI2mhELxbYCxouAo409e4JAeg2B_AKybvNWOqEqgN8hUdY09v5GYWQ5JZp9kL3l8iJTv0XFVBzS9Q"/>
+</div>
+</section>
+<!-- Section: The Engine Room -->
+<section class="py-24 px-6 md:px-24 bg-surface-container-low relative">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline text-5xl font-bold text-primary mb-4 uppercase tracking-tight">The Engine Room</h2>
+<div class="h-1 w-24 bg-primary mb-6"></div>
+<p class="text-on-surface-variant text-lg">Pushing hardware beyond the breaking point. Our labs operate at sub-zero temperatures to extract every ounce of performance from the latest silicon.</p>
+</div>
+<div class="font-label text-on-surface-variant text-sm flex gap-12">
+<div>
+<div class="text-white font-bold text-2xl">0.004ms</div>
+<div class="uppercase tracking-widest text-[10px]">Latency Core</div>
+</div>
+<div>
+<div class="text-white font-bold text-2xl">-196°C</div>
+<div class="uppercase tracking-widest text-[10px]">Nitrogen Flow</div>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Liquid Nitrogen Card -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl border border-white/5 bg-surface-container-high p-8 h-[500px]">
+<div class="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Blue glowing computer components with smoke" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLHNAgqZbP1b5I5ZuG_9X8peWlSRalSJsyMteyvMcG3Ph_U0NOpnkGZ7SsjiAtserNSpqML03N4j0lA-ACuiRF9JUwH2_9sgV2jhrf8Vca1ITMQ7QeMSaiOfSLoMXNf8L1Hjosze_XmBFn92yXI2RwsDpGaif7CSRS-FgTF9tn7bkQOpJMTf7gjuKtXXwaGqJTa8GMnRzzOZMTiy2fVKDTM4K8m4uWQPqm8A3KIG04ojbRINIeDRYwUCkUbnRCiy913SE69zV9Yw"/>
+</div>
+<div class="relative z-10 flex flex-col h-full justify-between">
+<div class="flex justify-between items-start">
+<span class="bg-primary/20 text-primary border border-primary/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Live Experiment</span>
+<div class="text-right">
+<div class="text-white font-headline text-3xl font-black italic">6.8 GHz</div>
+<div class="text-primary text-[10px] uppercase font-bold tracking-tighter">Clock Speed Attained</div>
+</div>
+</div>
+<div>
+<h3 class="font-headline text-4xl font-bold text-white mb-4">Cryo-Vault <br/> Overclocking</h3>
+<p class="text-on-surface-variant max-w-md mb-6">Direct application of liquid nitrogen cooling on prototype X-Series chipsets. Stabilizing voltage at peak frequencies.</p>
+<a class="inline-flex items-center gap-2 text-primary font-bold uppercase text-sm tracking-widest hover:gap-4 transition-all" href="#">
+                                    Access Telemetry <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Side Stats Panel -->
+<div class="md:col-span-4 flex flex-col gap-6">
+<div class="flex-1 bg-surface-variant p-6 rounded-xl border border-white/10 glass-panel">
+<h4 class="font-headline text-secondary text-xl font-bold mb-4 flex items-center gap-2">
+<span class="material-symbols-outlined">analytics</span> Terminal Output
+                            </h4>
+<div class="font-mono text-[11px] text-on-surface-variant space-y-1">
+<p class="text-primary/70">&gt; Initializing core_sync.sh</p>
+<p>&gt; Voltage: 1.45V [STABLE]</p>
+<p>&gt; Temp: -182°C</p>
+<p>&gt; Memory usage: 84%</p>
+<p class="text-secondary">&gt; WARNING: Thermal throttle bypassed</p>
+<p>&gt; Sector 7G verified...</p>
+<p class="text-primary/70">&gt; Link established.</p>
+</div>
+<div class="mt-6 pt-6 border-t border-white/5 flex flex-col gap-2">
+<div class="flex justify-between text-xs">
+<span class="text-on-surface-variant">Power Draw</span>
+<span class="text-white">450W</span>
+</div>
+<div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-[85%]"></div>
+</div>
+</div>
+</div>
+<div class="h-48 bg-tertiary-dim/10 rounded-xl border border-tertiary-dim/20 p-6 flex flex-col justify-end group">
+<span class="material-symbols-outlined text-tertiary text-4xl mb-2 group-hover:scale-110 transition-transform">ac_unit</span>
+<h4 class="text-white font-bold text-lg">Thermal Buffer Alpha</h4>
+<p class="text-on-surface-variant text-xs">Custom loop engineering with 14% efficiency gain.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Community Pulse -->
+<section class="py-32 px-6 md:px-24 bg-surface overflow-hidden relative">
+<!-- Background Decoration -->
+<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-5 pointer-events-none">
+<div class="w-full h-full border-[40px] border-primary rounded-full scale-150 blur-3xl"></div>
+</div>
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="text-center mb-24">
+<h2 class="font-headline text-7xl font-black text-white tracking-tighter mb-4 uppercase">Community Pulse</h2>
+<p class="font-body text-on-surface-variant uppercase tracking-widest text-sm">Real-time engagement within the kinetic ecosystem</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+<!-- Raid Feed -->
+<div class="bg-surface-container-high/40 backdrop-blur-md rounded-xl border border-outline-variant/20 p-8">
+<div class="flex items-center justify-between mb-8">
+<h3 class="font-headline font-bold text-2xl flex items-center gap-3">
+<span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                                Upcoming Raids
+                            </h3>
+<span class="text-on-surface-variant text-xs font-mono uppercase">Live_Grid</span>
+</div>
+<div class="space-y-6">
+<div class="p-4 bg-white/5 rounded-lg border-l-4 border-primary">
+<div class="text-[10px] text-primary font-bold uppercase mb-1">In 45 Minutes</div>
+<div class="text-white font-bold mb-1">Server stress test: Omega</div>
+<p class="text-on-surface-variant text-xs">Simulating 1M concurrent connections across the core nodes.</p>
+</div>
+<div class="p-4 bg-white/5 rounded-lg border-l-4 border-secondary">
+<div class="text-[10px] text-secondary font-bold uppercase mb-1">Tomorrow 18:00</div>
+<div class="text-white font-bold mb-1">GPU Silicon Lottery</div>
+<p class="text-on-surface-variant text-xs">Unboxing and testing batch A-23 for high-frequency bins.</p>
+</div>
+<div class="p-4 bg-white/5 rounded-lg border-l-4 border-tertiary">
+<div class="text-[10px] text-tertiary font-bold uppercase mb-1">Sat 10:00</div>
+<div class="text-white font-bold mb-1">Global Node Sync</div>
+<p class="text-on-surface-variant text-xs">Community-driven latency mapping of the decentral network.</p>
+</div>
+</div>
+</div>
+<!-- Live Stats Visualizer -->
+<div class="lg:col-span-2 bg-surface-container p-8 rounded-xl border border-white/5 shadow-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="material-symbols-outlined text-primary/30 text-8xl">sensors</span>
+</div>
+<div class="relative z-10 h-full flex flex-col">
+<div class="flex gap-12 mb-12">
+<div>
+<div class="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest mb-2">Connected Cores</div>
+<div class="text-4xl font-headline font-black text-white">12,842</div>
+</div>
+<div>
+<div class="text-on-surface-variant text-[10px] uppercase font-bold tracking-widest mb-2">Data Throughput</div>
+<div class="text-4xl font-headline font-black text-primary">4.2 PB/s</div>
+</div>
+</div>
+<!-- Mock Graph -->
+<div class="mt-auto flex items-end gap-2 h-48 w-full">
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[30%]"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[45%]"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[60%]"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[40%]"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[75%]"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[90%]"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[65%]"></div>
+<div class="bg-primary/40 hover:bg-primary/60 transition-colors w-full rounded-t-sm h-[85%]"></div>
+<div class="bg-primary/60 hover:bg-primary/80 transition-colors w-full rounded-t-sm h-[100%]"></div>
+<div class="bg-primary/20 hover:bg-primary/40 transition-colors w-full rounded-t-sm h-[50%]"></div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-on-surface-variant font-mono">
+<span>00:00 UTC</span>
+<span>CURRENT STATUS: NOMINAL</span>
+<span>23:59 UTC</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-6">
+<div class="max-w-4xl mx-auto rounded-3xl bg-gradient-to-br from-surface-container-high to-surface-container p-12 text-center border border-white/10 relative overflow-hidden">
+<div class="absolute -top-24 -left-24 w-64 h-64 bg-secondary/10 rounded-full blur-[80px]"></div>
+<div class="relative z-10">
+<h2 class="font-headline text-4xl font-bold mb-6 text-white uppercase tracking-tight">Become a part of <span class="text-primary">The Core</span></h2>
+<p class="text-on-surface-variant mb-10 text-lg max-w-xl mx-auto leading-relaxed">Early access to experimental technical data, raw bench files, and high-performance hardware raids.</p>
+<div class="max-w-md mx-auto relative group">
+<input class="w-full bg-surface-container-highest border-none rounded-md px-6 py-4 font-label text-sm tracking-widest focus:ring-0 neon-border-focus transition-all" placeholder="ENTER ACCESS CODE OR EMAIL" type="email"/>
+<button class="absolute right-2 top-2 bottom-2 bg-primary text-on-primary px-6 rounded-md font-bold uppercase text-[10px] tracking-widest hover:scale-105 active:scale-95 transition-transform">Authorize</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="flex flex-col md:flex-row justify-between items-center px-12 py-8 w-full border-t border-white/5 bg-transparent mt-24">
+<div class="font-body text-[10px] text-on-surface-variant uppercase tracking-[0.2em] mb-4 md:mb-0">
+            © 2024 TECHBURNER KINETIC CORE. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex gap-10 font-label text-[11px] uppercase tracking-widest text-on-surface-variant">
+<a class="hover:text-tertiary transition-colors" href="#">Privacy</a>
+<a class="hover:text-tertiary transition-colors" href="#">Terms</a>
+<a class="text-primary hover:text-tertiary transition-colors" href="#">Protocol</a>
+</div>
+</footer>
+<!-- Floating Action Button (FAB) - Suppressed per rules for sub-page context unless critical -->
+</body></html>
