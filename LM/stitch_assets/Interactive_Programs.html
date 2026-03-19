@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lauren McBride - Interactive Fitness Programs</title>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- BEGIN: Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#51c878', // Emerald Green from Snapshot
+              gold: '#D4AF37',
+              dark: '#0A0A0A',
+              card: '#141414',
+            },
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          borderRadius: {
+            'theme': '8px', // ROUND_EIGHT from Snapshot
+          },
+          animation: {
+            'glow-pulse': 'glow-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            'glow-pulse': {
+              '0%, 100%': { opacity: 1, filter: 'brightness(1)' },
+              '50%': { opacity: 0.7, filter: 'brightness(1.5)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- END: Tailwind Configuration -->
+<!-- BEGIN: Custom CSS -->
+<style data-purpose="3d-scene-layout">
+    /* Perspective for the 3D container */
+    .scene {
+      perspective: 1200px;
+    }
+
+    /* Base Cube Structure */
+    .cube-wrapper {
+      position: relative;
+      width: 280px;
+      height: 280px;
+      transform-style: preserve-3d;
+      transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Auto-rotating animation */
+    .cube-rotate {
+      animation: rotateCube 20s infinite linear;
+    }
+
+    .cube-wrapper:hover {
+      animation-play-state: paused;
+    }
+
+    .cube {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+
+    .face {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border: 2px solid rgba(81, 200, 120, 0.3);
+      background: rgba(10, 10, 10, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      backface-visibility: hidden;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Cube Face Positioning */
+    .front  { transform: rotateY(0deg) translateZ(140px); }
+    .back   { transform: rotateY(180deg) translateZ(140px); }
+    .right  { transform: rotateY(90deg) translateZ(140px); }
+    .left   { transform: rotateY(-90deg) translateZ(140px); }
+    .top    { transform: rotateX(90deg) translateZ(140px); }
+    .bottom { transform: rotateX(-90deg) translateZ(140px); }
+
+    /* Interaction: Open Cube effect on hover */
+    .program-card:hover .front  { transform: rotateY(0deg) translateZ(180px) scale(0.9); opacity: 0; }
+    .program-card:hover .top    { transform: rotateX(120deg) translateZ(140px); }
+    
+    @keyframes rotateCube {
+      0% { transform: rotateY(0deg) rotateX(15deg); }
+      100% { transform: rotateY(360deg) rotateX(15deg); }
+    }
+
+    /* Holographic UI effects */
+    .holo-grid {
+      background-image: linear-gradient(rgba(81, 200, 120, 0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(81, 200, 120, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .glow-shadow {
+      box-shadow: 0 0 25px rgba(81, 200, 120, 0.2);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(45deg, #D4AF37, #F9E29C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+<!-- END: Custom CSS -->
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
+<!-- BEGIN: Programs Section -->
+<section class="relative min-h-screen py-24 holo-grid selection:bg-brand-primary selection:text-brand-dark">
+<!-- Background Accents -->
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-brand-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute top-1/2 right-0 w-[500px] h-[500px] bg-brand-gold/5 rounded-full blur-[150px]"></div>
+</div>
+<div class="container mx-auto px-6 relative z-10">
+<!-- Section Header -->
+<header class="text-center mb-24" data-purpose="section-header">
+<h2 class="text-xs font-bold tracking-[0.3em] uppercase text-brand-primary mb-4 animate-glow-pulse">Premium Elite Access</h2>
+<h1 class="text-5xl md:text-7xl font-bold italic tracking-tighter mb-6">
+          INTERACTIVE <span class="gold-gradient-text">PROGRAMS</span>
+</h1>
+<p class="max-w-2xl mx-auto text-gray-400 text-lg">
+          Immersive digital training ecosystems designed for the elite. Select your path to total physical and mental optimization.
+        </p>
+</header>
+<!-- BEGIN: Interactive Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 justify-items-center" data-purpose="program-grid">
+<!-- Program 1: Online Coaching -->
+<div class="program-card scene cursor-pointer" data-purpose="cube-online-coaching">
+<div class="cube-wrapper cube-rotate">
+<div class="cube">
+<!-- Visible Front Face -->
+<div class="face front border-brand-primary/40 glow-shadow">
+<svg class="w-16 h-16 text-brand-primary mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path></svg>
+<h3 class="text-xl font-bold tracking-widest uppercase">Elite</h3>
+<p class="text-xs text-brand-primary tracking-widest">ONLINE COACHING</p>
+</div>
+<!-- Content Revealed Inside -->
+<div class="face back border-brand-primary/20 bg-brand-card">
+<div class="p-6 text-center">
+<p class="text-sm text-gray-400 mb-4">24/7 Access to tailored workflows and metrics.</p>
+<button class="bg-brand-primary text-black text-xs font-bold py-2 px-6 rounded-theme hover:bg-white transition-colors uppercase">Enter Program</button>
+</div>
+</div>
+<div class="face right border-brand-primary/10"></div>
+<div class="face left border-brand-primary/10"></div>
+<div class="face top border-brand-primary/10"></div>
+<div class="face bottom border-brand-primary/10"></div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h4 class="text-lg font-bold">Online Coaching</h4>
+<span class="text-brand-primary text-xs tracking-tighter">Digital Ecosystem</span>
+</div>
+</div>
+<!-- Program 2: Holistic Nutrition -->
+<div class="program-card scene cursor-pointer" data-purpose="cube-nutrition">
+<div class="cube-wrapper cube-rotate" style="animation-delay: -5s;">
+<div class="cube">
+<div class="face front border-brand-gold/40 shadow-[0_0_25px_rgba(212,175,55,0.2)]">
+<svg class="w-16 h-16 text-brand-gold mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path></svg>
+<h3 class="text-xl font-bold tracking-widest uppercase text-brand-gold">Pure</h3>
+<p class="text-xs text-brand-gold tracking-widest">NUTRITION PLANS</p>
+</div>
+<div class="face back border-brand-gold/20 bg-brand-card">
+<div class="p-6 text-center">
+<p class="text-sm text-gray-400 mb-4">Bio-individualized fueling strategies.</p>
+<button class="bg-brand-gold text-black text-xs font-bold py-2 px-6 rounded-theme hover:bg-white transition-colors uppercase">Explore Menu</button>
+</div>
+</div>
+<div class="face right border-brand-gold/10"></div>
+<div class="face left border-brand-gold/10"></div>
+<div class="face top border-brand-gold/10"></div>
+<div class="face bottom border-brand-gold/10"></div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h4 class="text-lg font-bold">Holistic Nutrition</h4>
+<span class="text-brand-gold text-xs tracking-tighter">Bio-Harmonization</span>
+</div>
+</div>
+<!-- Program 3: Personal Training -->
+<div class="program-card scene cursor-pointer" data-purpose="cube-training">
+<div class="cube-wrapper cube-rotate" style="animation-delay: -10s;">
+<div class="cube">
+<div class="face front border-brand-primary/40 glow-shadow">
+<svg class="w-16 h-16 text-brand-primary mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path></svg>
+<h3 class="text-xl font-bold tracking-widest uppercase">Prime</h3>
+<p class="text-xs text-brand-primary tracking-widest">PERSONAL TRAINING</p>
+</div>
+<div class="face back border-brand-primary/20 bg-brand-card">
+<div class="p-6 text-center">
+<p class="text-sm text-gray-400 mb-4">One-on-one high-intensity mentorship.</p>
+<button class="bg-brand-primary text-black text-xs font-bold py-2 px-6 rounded-theme hover:bg-white transition-colors uppercase">Book Session</button>
+</div>
+</div>
+<div class="face right border-brand-primary/10"></div>
+<div class="face left border-brand-primary/10"></div>
+<div class="face top border-brand-primary/10"></div>
+<div class="face bottom border-brand-primary/10"></div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h4 class="text-lg font-bold">Personal Training</h4>
+<span class="text-brand-primary text-xs tracking-tighter">Elite Mentorship</span>
+</div>
+</div>
+<!-- Program 4: Lifestyle Transformation -->
+<div class="program-card scene cursor-pointer" data-purpose="cube-lifestyle">
+<div class="cube-wrapper cube-rotate" style="animation-delay: -15s;">
+<div class="cube">
+<div class="face front border-brand-gold/40 shadow-[0_0_25px_rgba(212,175,55,0.2)]">
+<svg class="w-16 h-16 text-brand-gold mb-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"></path></svg>
+<h3 class="text-xl font-bold tracking-widest uppercase text-brand-gold">Meta</h3>
+<p class="text-xs text-brand-gold tracking-widest">TRANSFORMATION</p>
+</div>
+<div class="face back border-brand-gold/20 bg-brand-card">
+<div class="p-6 text-center">
+<p class="text-sm text-gray-400 mb-4">Complete 12-week paradigm shift.</p>
+<button class="bg-brand-gold text-black text-xs font-bold py-2 px-6 rounded-theme hover:bg-white transition-colors uppercase">Begin Journey</button>
+</div>
+</div>
+<div class="face right border-brand-gold/10"></div>
+<div class="face left border-brand-gold/10"></div>
+<div class="face top border-brand-gold/10"></div>
+<div class="face bottom border-brand-gold/10"></div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<h4 class="text-lg font-bold">Lifestyle Transformation</h4>
+<span class="text-brand-gold text-xs tracking-tighter">Identity Rebirth</span>
+</div>
+</div>
+</div>
+<!-- END: Interactive Grid -->
+<!-- Footer CTA -->
+<footer class="mt-32 text-center" data-purpose="section-footer">
+<div class="inline-flex items-center space-x-4 border border-white/10 rounded-full px-8 py-4 backdrop-blur-md">
+<span class="text-sm font-light">Unsure which program fits your vision?</span>
+<a class="text-brand-primary font-bold text-sm underline underline-offset-4 hover:text-white transition-colors" href="#">Take the Archetype Quiz</a>
+</div>
+</footer>
+</div>
+</section>
+<!-- END: Programs Section -->
+<!-- BEGIN: Interactive Logic -->
+<script data-purpose="interaction-handlers">
+    // Add logic to pause rotation and trigger specific animation on mouse enter/leave
+    document.querySelectorAll('.program-card').forEach(card => {
+      const wrapper = card.querySelector('.cube-wrapper');
+      
+      card.addEventListener('mouseenter', () => {
+        wrapper.classList.remove('cube-rotate');
+        // Optional: Force snap to front view if needed, though CSS handle hover nicely
+        wrapper.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        wrapper.classList.add('cube-rotate');
+        // Reset custom transform to let animation take over
+        wrapper.style.transform = '';
+      });
+    });
+  </script>
+<!-- END: Interactive Logic -->
+</body></html>

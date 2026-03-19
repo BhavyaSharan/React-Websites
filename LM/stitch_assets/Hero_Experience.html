@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lauren McBride | 3D Wellness Experience</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#51c878', // Custom Emerald Green from Snapshot
+            gold: '#D4AF37',
+            charcoal: '#0a0a0a',
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px', // ROUND_EIGHT from Snapshot
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="glassmorphism">
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    }
+    
+    .holographic-glow {
+      box-shadow: 0 0 20px rgba(81, 200, 120, 0.3), inset 0 0 10px rgba(81, 200, 120, 0.2);
+    }
+
+    .text-glow {
+      text-shadow: 0 0 10px rgba(81, 200, 120, 0.5);
+    }
+  </style>
+<style data-purpose="canvas-layout">
+    #experience-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+    
+    .hero-content-layer {
+      position: relative;
+      z-index: 10;
+    }
+
+    body {
+      background-color: #0a0a0a;
+      overflow-x: hidden;
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="text-white font-sans antialiased">
+<!-- BEGIN: Navigation -->
+<nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-transparent">
+<div class="text-2xl font-bold tracking-tighter text-brand text-glow">LM</div>
+<div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-gray-400">
+<a class="hover:text-brand transition-colors" href="#">Experience</a>
+<a class="hover:text-brand transition-colors" href="#">Methods</a>
+<a class="hover:text-brand transition-colors" href="#">About Lauren</a>
+</div>
+<div class="h-10 w-10 glass-card rounded-custom flex items-center justify-center cursor-pointer">
+<div class="w-5 h-0.5 bg-brand mb-1"></div>
+<div class="w-5 h-0.5 bg-brand"></div>
+</div>
+</nav>
+<!-- END: Navigation -->
+<!-- BEGIN: Hero Section -->
+<main class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<!-- Background Canvas for 3D Elements -->
+<canvas data-purpose="threejs-container" id="experience-canvas"></canvas>
+<!-- Overlay Gradient for Depth -->
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-charcoal/50 to-charcoal pointer-events-none"></div>
+<!-- BEGIN: Main Content -->
+<section class="container mx-auto px-6 hero-content-layer grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<!-- Left Column: Branding and CTA -->
+<div class="space-y-8 animate-float" data-purpose="hero-text-container">
+<div class="inline-block px-4 py-1 glass-card border-brand/30 rounded-full text-xs font-bold tracking-[0.2em] text-brand uppercase mb-4">
+          The Future of Wellness
+        </div>
+<h1 class="text-6xl md:text-8xl font-bold leading-none tracking-tight">
+          IGNITE YOUR <br/>
+<span class="text-brand text-glow">INNER LIGHT</span>
+</h1>
+<p class="max-w-md text-gray-400 text-lg leading-relaxed">
+          Shed the weight of stress. Transform into pure energy with Lauren McBride's signature 3D holographic wellness experience.
+        </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="px-8 py-4 bg-brand text-charcoal font-bold rounded-custom hover:bg-white transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(81,200,120,0.4)]">
+            START YOUR TRANSFORMATION
+          </button>
+<button class="px-8 py-4 glass-card font-bold rounded-custom hover:border-brand/50 transition-all">
+            EXPLORE THE SCIENCE
+          </button>
+</div>
+<div class="flex items-center space-x-4 mt-8">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-charcoal bg-gray-700"></div>
+<div class="w-8 h-8 rounded-full border-2 border-charcoal bg-gray-600"></div>
+<div class="w-8 h-8 rounded-full border-2 border-charcoal bg-gray-500"></div>
+</div>
+<span class="text-xs text-gray-500 tracking-wider">JOIN 2,500+ TRANSFORMED LIVES</span>
+</div>
+</div>
+<!-- Right Column: Visual Focus (Handled via Canvas, this is a placeholder/spacer) -->
+<div class="hidden lg:block h-[600px] relative" data-purpose="visual-anchor">
+<!-- Floating UI Elements over 3D space -->
+<div class="absolute top-10 right-0 glass-card p-4 rounded-custom border-gold/20 animate-pulse-slow">
+<div class="text-gold text-xs font-bold mb-1">STRESS LEVEL</div>
+<div class="w-32 h-1 bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-gold w-1/4"></div>
+</div>
+<div class="text-[10px] mt-1 text-gray-500">DECREASING...</div>
+</div>
+<div class="absolute bottom-20 left-10 glass-card p-4 rounded-custom border-brand/20">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-brand/20 flex items-center justify-center">
+<svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<div>
+<div class="text-brand text-xs font-bold uppercase">Energy State</div>
+<div class="text-xl font-bold">OPTIMAL</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Main Content -->
+</main>
+<!-- END: Hero Section -->
+<!-- BEGIN: Interactive Logic -->
+<script data-purpose="particle-simulation">
+    /**
+     * Simulation logic for floating particles and glow effects 
+     * acting as the "transformation" visual.
+     */
+    const canvas = document.getElementById('experience-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    let width, height;
+
+    function init() {
+      resize();
+      for (let i = 0; i < 150; i++) {
+        particles.push(new Particle());
+      }
+      animate();
+    }
+
+    function resize() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 0.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+        this.color = Math.random() > 0.5 ? '#51c878' : '#D4AF37';
+        this.alpha = Math.random();
+      }
+
+      update() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        
+        if (this.y < 0) {
+          this.y = height;
+          this.x = Math.random() * width;
+        }
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      
+      // Drawing a subtle "Humanoid" glow in the center-right
+      const centerX = width * 0.7;
+      const centerY = height * 0.5;
+      
+      const gradient = ctx.createRadialGradient(centerX, centerY, 50, centerX, centerY, 300);
+      gradient.addColorStop(0, 'rgba(81, 200, 120, 0.15)');
+      gradient.addColorStop(0.5, 'rgba(212, 175, 55, 0.05)');
+      gradient.addColorStop(1, 'transparent');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize', resize);
+    init();
+  </script>
+<!-- END: Interactive Logic -->
+</body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Holistic Wellness Ecosystem | Lauren McBride</title>
+<!-- Load Space Grotesk Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#51c878',
+            charcoal: '#121212',
+            glass: 'rgba(255, 255, 255, 0.05)',
+          },
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+          },
+          borderRadius: {
+            'custom': '8px',
+          },
+          animation: {
+            'spin-slow': 'spin 60s linear infinite',
+            'float': 'floating 6s ease-in-out infinite',
+            'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
+          },
+          keyframes: {
+            floating: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: 0.3, transform: 'scale(1)' },
+              '50%': { opacity: 0.6, transform: 'scale(1.1)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-styling">
+    body {
+      background-color: #0a0a0a;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+    }
+    .holographic-glow {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(81, 200, 120, 0.15) 0%, rgba(81, 200, 120, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .node-active {
+      border-color: #51c878 !important;
+      box-shadow: 0 0 25px rgba(81, 200, 120, 0.4);
+      transform: scale(1.1) translateZ(20px);
+    }
+    .perspective-container {
+      perspective: 1500px;
+    }
+    .three-d-layer {
+      transform-style: preserve-3d;
+    }
+    .orbit-path {
+      border: 1px dashed rgba(81, 200, 120, 0.2);
+    }
+  </style>
+</head>
+<body class="font-sans text-white">
+<!-- BEGIN: HolisticEcosystemSection -->
+<section class="relative min-h-screen flex items-center justify-center py-20 px-4 bg-charcoal overflow-hidden" data-purpose="holistic-wellness-interface" id="wellness-ecosystem">
+<!-- Background Decor Elements -->
+<div class="holographic-glow top-0 left-0 animate-pulse-glow"></div>
+<div class="holographic-glow bottom-0 right-0 animate-pulse-glow" style="animation-delay: 2s;"></div>
+<!-- BEGIN: MainContainer -->
+<div class="container mx-auto max-w-7xl relative z-10">
+<!-- Section Header -->
+<header class="text-center mb-16" data-purpose="section-title">
+<h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+          Holistic <span class="text-brand">Wellness</span> Ecosystem
+        </h2>
+<p class="text-gray-400 max-w-2xl mx-auto text-lg">
+          Lauren's philosophy connects five core pillars into a singular flow of vitality. 
+          Interact with the nodes to explore the depth of each discipline.
+        </p>
+</header>
+<!-- BEGIN: Interactive3DSpace -->
+<div class="perspective-container relative h-[700px] w-full flex items-center justify-center">
+<!-- Central Core -->
+<div class="absolute z-20 w-48 h-48 rounded-full flex items-center justify-center glass-card border-brand/40 animate-float" data-purpose="center-identity">
+<div class="text-center">
+<span class="block text-brand text-xs uppercase tracking-widest mb-1">Center</span>
+<span class="text-2xl font-bold">BALANCE</span>
+</div>
+</div>
+<!-- Orbits (Visual Decoration) -->
+<div class="absolute w-[600px] h-[600px] rounded-full orbit-path animate-spin-slow opacity-30"></div>
+<div class="absolute w-[450px] h-[450px] rounded-full orbit-path animate-spin-slow opacity-20" style="animation-direction: reverse;"></div>
+<!-- BEGIN: Nodes -->
+<!-- Mindfulness Node -->
+<div class="absolute glass-card w-40 p-6 rounded-custom cursor-pointer transition-all duration-500 hover:node-active text-center" data-purpose="node-mindfulness" onclick="toggleDetail('mindfulness')" style="transform: translate(-280px, -150px) rotateX(10deg);">
+<div class="text-brand mb-2 flex justify-center">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.364l-.707-.707M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-sm font-semibold tracking-wider uppercase">Mindfulness</h3>
+</div>
+<!-- Nutrition Node -->
+<div class="absolute glass-card w-40 p-6 rounded-custom cursor-pointer transition-all duration-500 hover:node-active text-center" data-purpose="node-nutrition" onclick="toggleDetail('nutrition')" style="transform: translate(280px, -150px) rotateX(10deg);">
+<div class="text-brand mb-2 flex justify-center">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-sm font-semibold tracking-wider uppercase">Nutrition</h3>
+</div>
+<!-- Strength Node -->
+<div class="absolute glass-card w-40 p-6 rounded-custom cursor-pointer transition-all duration-500 hover:node-active text-center" data-purpose="node-strength" onclick="toggleDetail('strength')" style="transform: translate(-320px, 150px) rotateX(-5deg);">
+<div class="text-brand mb-2 flex justify-center">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-sm font-semibold tracking-wider uppercase">Strength</h3>
+</div>
+<!-- Recovery Node -->
+<div class="absolute glass-card w-40 p-6 rounded-custom cursor-pointer transition-all duration-500 hover:node-active text-center" data-purpose="node-recovery" onclick="toggleDetail('recovery')" style="transform: translate(320px, 150px) rotateX(-5deg);">
+<div class="text-brand mb-2 flex justify-center">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-sm font-semibold tracking-wider uppercase">Recovery</h3>
+</div>
+<!-- Energy Node -->
+<div class="absolute glass-card w-40 p-6 rounded-custom cursor-pointer transition-all duration-500 hover:node-active text-center" data-purpose="node-energy" onclick="toggleDetail('energy')" style="transform: translate(0px, 280px) rotateX(-15deg);">
+<div class="text-brand mb-2 flex justify-center">
+<svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path></svg>
+</div>
+<h3 class="text-sm font-semibold tracking-wider uppercase">Energy</h3>
+</div>
+<!-- END: Nodes -->
+<!-- BEGIN: DetailPanel -->
+<div class="absolute inset-0 flex items-center justify-center z-50 pointer-events-none opacity-0 transition-opacity duration-500" data-purpose="expansion-view" id="detail-panel">
+<div class="glass-card w-full max-w-xl p-10 pointer-events-auto relative overflow-hidden">
+<!-- Close Button -->
+<button class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors" onclick="closeDetail()">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<div class="text-center" id="detail-content">
+<!-- Content injected by JS -->
+</div>
+<!-- Holographic background effect for panel -->
+<div class="absolute inset-0 bg-gradient-to-br from-brand/10 to-transparent opacity-50 -z-10"></div>
+</div>
+</div>
+<!-- END: DetailPanel -->
+</div>
+<!-- END: Interactive3DSpace -->
+</div>
+<!-- END: MainContainer -->
+</section>
+<!-- END: HolisticEcosystemSection -->
+<!-- BEGIN: LogicScripts -->
+<script data-purpose="interaction-logic">
+    const ecosystemData = {
+      mindfulness: {
+        title: "Mindfulness",
+        description: "Cultivating present-moment awareness through guided meditation, breathwork, and nervous system regulation. Learn to silence the noise and reconnect with your inner compass.",
+        metrics: ["Stress Reduction: 40%", "Focus Improvement: 2x"]
+      },
+      nutrition: {
+        title: "Nutrition",
+        description: "Bio-individual fueling strategies that prioritize whole foods and hormonal balance. It's not just what you eat, but how your body utilizes energy for optimal performance.",
+        metrics: ["Energy Stability: High", "Metabolic Health: Peak"]
+      },
+      strength: {
+        title: "Strength",
+        description: "Functional movement designed for longevity. Building a resilient physical foundation that supports daily activities and long-term musculoskeletal health.",
+        metrics: ["Muscle Density", "Power Output"]
+      },
+      recovery: {
+        title: "Recovery",
+        description: "The most underrated pillar. Sleep optimization, thermal therapy (sauna/cold plunge), and active rest protocols to ensure every workout yields maximum results.",
+        metrics: ["HRV Improvement", "Repair Speed"]
+      },
+      energy: {
+        title: "Energy Balance",
+        description: "Understanding the synergy of all pillars. Managing your 'Life Battery' by balancing output with regenerative practices for sustained, vibrant living.",
+        metrics: ["Daily Vitality", "Burnout Prevention"]
+      }
+    };
+
+    function toggleDetail(key) {
+      const data = ecosystemData[key];
+      const panel = document.getElementById('detail-panel');
+      const content = document.getElementById('detail-content');
+      
+      content.innerHTML = `
+        <h3 class="text-3xl font-bold mb-4 text-brand">${data.title}</h3>
+        <p class="text-gray-300 mb-8 leading-relaxed">${data.description}</p>
+        <div class="flex justify-center gap-4 mb-8">
+          ${data.metrics.map(m => `<span class="px-4 py-2 bg-brand/10 border border-brand/30 rounded-custom text-xs font-bold uppercase">${m}</span>`).join('')}
+        </div>
+        <button class="bg-brand text-charcoal px-8 py-3 rounded-custom font-bold hover:bg-white transition-colors duration-300">
+          EXPLORE ${data.title.toUpperCase()} PROTOCOLS
+        </button>
+      `;
+
+      panel.classList.remove('opacity-0', 'pointer-events-none');
+      panel.classList.add('opacity-100');
+    }
+
+    function closeDetail() {
+      const panel = document.getElementById('detail-panel');
+      panel.classList.add('opacity-0', 'pointer-events-none');
+      panel.classList.remove('opacity-100');
+    }
+  </script>
+<script data-purpose="parallax-effects">
+    // Simple parallax based on mouse movement for the 3D depth effect
+    document.addEventListener('mousemove', (e) => {
+      const x = (window.innerWidth / 2 - e.pageX) / 50;
+      const y = (window.innerHeight / 2 - e.pageY) / 50;
+      const container = document.querySelector('.perspective-container');
+      
+      // We apply subtle rotation to the whole container
+      if(!document.getElementById('detail-panel').classList.contains('opacity-100')) {
+        container.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      }
+    });
+  </script>
+<!-- END: LogicScripts -->
+</body></html>

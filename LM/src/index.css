@@ -1,0 +1,508 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #51c878;
+  --color-brand-primary: #51c878;
+  --color-brand-dark: #0A0A0A;
+  --color-brand-card: #141414;
+  --color-brand-gold: #D4AF37;
+  --color-gold: #D4AF37;
+  --color-emerald-light: #72d891;
+  --color-emerald: #51c878;
+  --color-emerald-dark: #3da861;
+  --color-charcoal: #0a0a0a;
+  --color-darkBg: #0a0a0a;
+
+  --font-sans: 'Space Grotesk', sans-serif;
+  --radius-custom: 8px;
+  --radius-theme: 8px;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-pulse-soft: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glow-pulse: glow-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float 8s ease-in-out infinite 1s;
+  --animate-float-slow: float 10s ease-in-out infinite 2s;
+  --animate-spin-slow: spin 60s linear infinite;
+  --animate-pulse-glow: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floating {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    filter: brightness(1.5);
+  }
+}
+
+@keyframes rotateCube {
+  0% {
+    transform: rotateY(0deg) rotateX(15deg);
+  }
+
+  100% {
+    transform: rotateY(360deg) rotateX(15deg);
+  }
+}
+
+@layer base {
+  body {
+    background-color: var(--color-charcoal);
+    color: white;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+
+  /* Hero specific */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  }
+
+  .holographic-glow {
+    box-shadow: 0 0 20px rgba(81, 200, 120, 0.3), inset 0 0 10px rgba(81, 200, 120, 0.2);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(81, 200, 120, 0.5);
+  }
+
+  /* Transformation specific */
+  .glass-label {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .island-glow {
+    filter: drop-shadow(0 0 30px rgba(81, 200, 120, 0.2));
+  }
+
+  .particle-container {
+    perspective: 1000px;
+  }
+
+  .gradient-text-gold {
+    background: linear-gradient(to right, #D4AF37, #F9E29C, #D4AF37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .emerald-line {
+    background: linear-gradient(to bottom, transparent, #51c878, transparent);
+  }
+
+  /* Wellness Ecosystem */
+  .eco-holographic-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(81, 200, 120, 0.15) 0%, rgba(81, 200, 120, 0) 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .node-active {
+    border-color: #51c878 !important;
+    box-shadow: 0 0 25px rgba(81, 200, 120, 0.4);
+    transform: scale(1.1) translateZ(20px) !important;
+  }
+
+  .perspective-container {
+    perspective: 1500px;
+  }
+
+  .three-d-layer {
+    transform-style: preserve-3d;
+  }
+
+  .orbit-path {
+    border: 1px dashed rgba(81, 200, 120, 0.2);
+  }
+
+  /* Interactive Programs */
+  .scene {
+    perspective: 1200px;
+  }
+
+  .cube-wrapper {
+    position: relative;
+    width: 280px;
+    height: 280px;
+    transform-style: preserve-3d;
+    transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .cube-rotate {
+    animation: rotateCube 20s infinite linear;
+  }
+
+  .cube-wrapper:hover {
+    animation-play-state: paused;
+  }
+
+  .cube {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+  }
+
+  .face {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border: 2px solid rgba(81, 200, 120, 0.3);
+    background: rgba(10, 10, 10, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    backface-visibility: hidden;
+    backdrop-filter: blur(8px);
+  }
+
+  .front {
+    transform: rotateY(0deg) translateZ(140px);
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(140px);
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(140px);
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(140px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(140px);
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(140px);
+  }
+
+  .program-card:hover .front {
+    transform: rotateY(0deg) translateZ(180px) scale(0.9);
+    opacity: 0;
+  }
+
+  .program-card:hover .top {
+    transform: rotateX(120deg) translateZ(140px);
+  }
+
+  .holo-grid {
+    background-image: linear-gradient(rgba(81, 200, 120, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(81, 200, 120, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .glow-shadow {
+    box-shadow: 0 0 25px rgba(81, 200, 120, 0.2);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(45deg, #D4AF37, #F9E29C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* =============================================
+   RESPONSIVE FIXES — added on top of original
+   ============================================= */
+
+/* --- Hero Section --- */
+/* Ensure the hero fills the full viewport height correctly on mobile */
+main.relative.min-h-screen {
+  min-height: 100dvh;
+}
+
+/* On small screens, stack the hero grid to one column and center content */
+@media (max-width: 1023px) {
+
+  /* Hero inner grid: single column */
+  main.relative section.container>.grid,
+  section.container .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Hide the purely decorative right column on mobile */
+  .hidden.lg\:block.h-\[600px\] {
+    display: none !important;
+  }
+
+  /* Shrink hero headline */
+  h1.text-6xl {
+    font-size: clamp(2.5rem, 10vw, 4.5rem);
+  }
+
+  /* Shrink hero button row so they don't overflow */
+  .flex.flex-col.sm\:flex-row.gap-4 button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Nav: make the hamburger work on small screens */
+@media (max-width: 767px) {
+  nav .hidden.md\:flex {
+    display: none !important;
+  }
+}
+
+/* --- Programs Section --- */
+/* 2-col on mobile, 4-col on large */
+@media (max-width: 1023px) {
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 3rem 1.5rem !important;
+  }
+
+  /* Scale cubes down so they fit in half-width columns */
+  .cube-wrapper {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .face {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .front {
+    transform: rotateY(0deg) translateZ(80px) !important;
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(80px) !important;
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(80px) !important;
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(80px) !important;
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(80px) !important;
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(80px) !important;
+  }
+
+  .program-card:hover .front {
+    transform: rotateY(0deg) translateZ(100px) scale(0.9) !important;
+    opacity: 0;
+  }
+
+  .program-card:hover .top {
+    transform: rotateX(120deg) translateZ(80px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-4 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cube-wrapper {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .face {
+    width: 200px !important;
+    height: 200px !important;
+  }
+
+  .front {
+    transform: rotateY(0deg) translateZ(100px) !important;
+  }
+
+  .back {
+    transform: rotateY(180deg) translateZ(100px) !important;
+  }
+
+  .right {
+    transform: rotateY(90deg) translateZ(100px) !important;
+  }
+
+  .left {
+    transform: rotateY(-90deg) translateZ(100px) !important;
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(100px) !important;
+  }
+
+  .bottom {
+    transform: rotateX(-90deg) translateZ(100px) !important;
+  }
+}
+
+/* --- Journey Section --- */
+/* Stage cards: 2-col on tablet, 1-col on mobile */
+@media (max-width: 1023px) {
+
+  /* The stages lay out vertically already via flex-col; 
+     on tablet use a 2-column grid */
+  .relative.w-full.max-w-6xl.flex.flex-col {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 3rem !important;
+    align-items: start !important;
+  }
+
+  /* Remove the alternating justify-start/justify-end offsets */
+  .relative.w-full.max-w-6xl.flex.flex-col>div {
+    justify-content: center !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Hide the central connector line — doesn't work in grid layout */
+  .absolute.h-full.w-px.emerald-line {
+    display: none !important;
+  }
+
+  /* Glass labels: reset absolute positioning inside each card */
+  .glass-label {
+    position: static !important;
+    transform: none !important;
+    margin-top: 1rem !important;
+    width: auto !important;
+    min-width: unset !important;
+    text-align: center !important;
+  }
+
+  /* Island base: remove rotations that cause overflow */
+  .island-glow {
+    transform: none !important;
+    margin: 0 auto !important;
+  }
+
+  /* Remove per-card float animations that cause layout shift */
+  .relative.w-full.max-w-6xl.flex.flex-col>div {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .relative.w-full.max-w-6xl.flex.flex-col {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* --- Wellness Ecosystem --- */
+/* On mobile, scale the 3D orbit viewport down so it doesn't overflow */
+@media (max-width: 1023px) {
+  .perspective-container {
+    height: 380px !important;
+  }
+
+  .transform.scale-\[0\.45\].sm\:scale-75.md\:scale-100 {
+    transform: scale(0.55) !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .perspective-container {
+    height: 280px !important;
+  }
+
+  .transform.scale-\[0\.45\].sm\:scale-75.md\:scale-100 {
+    transform: scale(0.38) !important;
+  }
+}
+
+/* --- Section headings: fluid sizing --- */
+@media (max-width: 767px) {
+  .text-5xl {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+  }
+
+  .text-6xl {
+    font-size: clamp(2.2rem, 9vw, 3.5rem) !important;
+  }
+
+  .text-7xl {
+    font-size: clamp(2.5rem, 10vw, 4rem) !important;
+  }
+
+  .text-8xl {
+    font-size: clamp(2.8rem, 11vw, 4.5rem) !important;
+  }
+
+  /* Prevent horizontal overflow from absolute positioned accents */
+  section {
+    overflow-x: hidden;
+  }
+
+  /* Container padding on mobile */
+  .container.mx-auto.px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
